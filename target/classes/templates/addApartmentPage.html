@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Estate</title>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- See configuration in WebMvConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="main_menu"></th:block>
+<th:block th:include="apartments_menu"></th:block>
+
+<h2>Add Apartment</h2>
+
+<form th:action="@{/addApartment}" th:object="${addApartmentForm}" method="POST">
+
+    <div class="form-group">
+        <label for="apartmentName">Название квартиры</label>
+        <input type="text"	class="form-control"  placeholder="Enter apartment title" th:field="*{name}" />
+    </div>
+    <div class="form-group">
+        <label for="area">Площадь квартиры</label>
+        <input type="text"	class="form-control"  placeholder="Enter apartment area" th:field="*{area}" />
+    </div>
+    <div class="form-group">
+        <label for="dateOfBuild">Дата окончания строительства</label>
+        <input type="text"	class="form-control"  placeholder="Enter date of build (example 2015-8-17)" th:field="*{date_of_build}" />
+    </div>
+    <div class="form-group">
+        <label for="purchasePrice">Цена продажи</label>
+        <input type="text"	class="form-control"  placeholder="Enter purchase price" th:field="*{purchase_price}" />
+    </div>
+    <div class="form-group">
+        <label for="rentPrice">Цена аренды</label>
+        <input type="text"	class="form-control"  placeholder="Enter purchase price" th:field="*{rent_price}" />
+    </div>
+    <div class="form-group">
+        <label for="rooms">Комнаты</label>
+        <input type="text"	class="form-control"  placeholder="Enter number of rooms" th:field="*{rooms}" />
+    </div>
+    <div class="form-group">
+        <label for="idComplex">Жилой комплекс</label>
+        <input type="text"	class="form-control"  placeholder="Enter id of apartment complex" th:field="*{idComplex}" />
+    </div>
+    <div class="form-group">
+        <label for="floor">Этаж</label>
+        <input type="text"	class="form-control"  placeholder="Enter floor" th:field="*{floor}" />
+    </div>
+    <div class="form-group">
+        <label for="separateBathroom">Раздельный санузер</label>
+        <input type="text"	class="form-control"  placeholder="Indicate separate bathroom availability (true/false)" th:field="*{separate_bathroom}" />
+    </div>
+    <div class="form-group">
+        <label for="areaBalcony">Площадь балкона</label>
+        <input type="text"	class="form-control"  placeholder="Enter balcony area" th:field="*{balcony_area}" />
+    </div>
+
+    <td><input type="submit"  class="btn btn-success"  value="Add"/></td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Offices</title>
+    <style>
+        .table{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+        .center{
+            vertical-align: center;
+        }
+    </style>
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- See configuration in WebMvConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+    <!-- <style>
+    th, td {
+        padding: 5px;
+    }
+    </style> -->
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="main_menu"></th:block>
+<th:block th:include="offices_menu"></th:block>
+
+<div class="container center">
+    <h2>Офисы</h2>
+
+    <table  class="table table-hover text-centered">
+
+        <tr>
+            <th>Название</th>
+            <th>Район</th>
+            <th>Площадь</th>
+            <th>Дата окончания строительства</th>
+            <th>Вместимость</th>
+            <th>Эвакуационные выходы</th>
+            <th>Наличие паркинга</th>
+            <th>БЦ</th>
+            <th>Конференц залы</th>
+            <th>Переговорные</th>
+            <th>Биометрическая система защиты</th>
+        </tr>
+        <tr th:each="offficesInfo : ${allOffices}">
+            <td th:utext="${offficesInfo.name}">..</td>
+            <td th:utext="${offficesInfo.city_district}">..</td>
+            <td th:utext="${offficesInfo.area}">..</td>
+            <td th:utext="${offficesInfo.toStringDate()}">..</td>
+            <td th:utext="${offficesInfo.capacity}">..</td>
+            <td th:utext="${offficesInfo.emergency_exits}">..</td>
+            <td th:utext="${offficesInfo.parking}">..</td>
+            <td th:utext="${offficesInfo.name_of_BC}">..</td>
+            <td th:utext="${offficesInfo.conference_halls}">..</td>
+            <td th:utext="${offficesInfo.negotiation_rooms}">..</td>
+            <td th:utext="${offficesInfo.biometric_security}">..</td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
